@@ -35,8 +35,7 @@ public class Torneo {
 				this.luchadores[i] = new Luchador(peso, altura);
 			}
 			sc.close();
-		}
-		catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
@@ -52,32 +51,17 @@ public class Torneo {
 			}
 
 			salida.close();
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private int compara(int valor1, int valor2) {
-
-		if (valor1 > valor2) return 1;
-		if (valor1 == valor2) return 0;
-		return -1;
-	}
-
 	public void compiten() {
-		int peso = 0;
-		int altura = 0;
-
 		for (int i = 0; i < this.luchadores.length; i++) {
 			for (int j = 0; j < this.luchadores.length; j++) {
-				peso = compara(this.luchadores[i].getPeso(), this.luchadores[j].getPeso());
-				altura = compara(this.luchadores[i].getAltura(), this.luchadores[j].getAltura());
-
-				if (peso + altura > 0)
+				if (this.luchadores[i].domina(luchadores[j]))
 					this.luchadores[i].setCantidadDominados(this.luchadores[i].getCantidadDominados() + 1);
 			}
 		}
-
 	}
 }
