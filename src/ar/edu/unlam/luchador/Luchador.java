@@ -1,6 +1,6 @@
 package ar.edu.unlam.luchador;
 
-public class Luchador implements Comparable<Luchador> {
+public class Luchador {
 
 	private Integer altura;
 	private Integer peso;
@@ -38,14 +38,11 @@ public class Luchador implements Comparable<Luchador> {
 		this.cantidadDominados = domina;
 	}
 
-	public int compareTo(Luchador obj) {
-		if ((this.peso >= obj.peso && this.altura >= obj.altura)) {
-			return 1;
-		}
-		if ((this.peso > obj.peso && this.altura < obj.altura) || (this.peso < obj.peso && this.altura > obj.altura)) {
-			return 0;
-		}
-		return -1;
+	/**
+	 * Aumenta la cantidad de luchadores que domina el luchador. <br>
+	 */
+	public void aumentarCantidadDomina() {
+		this.cantidadDominados++;
 	}
 
 	/**
@@ -55,7 +52,7 @@ public class Luchador implements Comparable<Luchador> {
 	 * @return true si lo domina, false si no lo domina. <br>
 	 */
 	public Boolean domina(Luchador luchador) {
-		if (this.compareTo(luchador) > 0) {
+		if (this.peso >= luchador.peso && this.altura >= luchador.altura) {
 			return true;
 		}
 		return false;

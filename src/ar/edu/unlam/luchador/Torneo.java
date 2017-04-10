@@ -60,7 +60,7 @@ public class Torneo {
 		for (int i = 0; i < this.luchadores.length; i++) {
 			for (int j = 0; j < this.luchadores.length; j++) {
 				if (this.luchadores[i].domina(luchadores[j]))
-					this.luchadores[i].setCantidadDominados(this.luchadores[i].getCantidadDominados() + 1);
+					this.luchadores[i].aumentarCantidadDomina();
 			}
 		}
 	}
