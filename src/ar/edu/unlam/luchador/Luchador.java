@@ -5,11 +5,11 @@ public class Luchador {
 	private Integer altura;
 	private Integer peso;
 	private Integer cantidadDominados = 0;
-	
+
 	public static void main(String[] args) {
 	}
 
-	public Luchador(Integer peso, Integer altura){
+	public Luchador(Integer peso, Integer altura) {
 		this.peso = peso;
 		this.altura = altura;
 	}
@@ -29,7 +29,7 @@ public class Luchador {
 	public void setPeso(Integer peso) {
 		this.peso = peso;
 	}
-	
+
 	public Integer getCantidadDominados() {
 		return cantidadDominados;
 	}
@@ -37,11 +37,24 @@ public class Luchador {
 	public void setCantidadDominados(Integer domina) {
 		this.cantidadDominados = domina;
 	}
-	
-	public int domina(Luchador obj){
-		if (this.peso > obj.peso) return 1;
-		if (this.peso == obj.peso) return 0;
-		return -1;
+
+	/**
+	 * Aumenta la cantidad de luchadores que domina el luchador. <br>
+	 */
+	public void aumentarCantidadDomina() {
+		this.cantidadDominados++;
 	}
-	
+
+	/**
+	 * Indica si el luchador domina a otro luchador. <br>
+	 * 
+	 * @param luchador
+	 * @return true si lo domina, false si no lo domina. <br>
+	 */
+	public Boolean domina(Luchador luchador) {
+		if (this.peso >= luchador.peso && this.altura >= luchador.altura) {
+			return true;
+		}
+		return false;
+	}
 }
